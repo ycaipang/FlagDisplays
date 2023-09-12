@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * @file
+ * This file demonstrate how to use hook function
+ */
+
+ /**
+  * Implements hook_cron().
+  */
+function mymodule_cron() {
+  \Drupal::messenger()->addMessage(t("Hello from mymodule cron hook! :) :)"));
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function mymodule_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id === 'node_products_form') {
+    // \Drupal::messenger()->addMessage(t("form ID of this form is @id: ", ['@id' => $form_id]));
+    $field_name_value = array (
+      'field_flags_category' => '1',
+      'field_bunting_streamers_category' => '4',
+      'field_display_exhibition_equipme' => '5',
+      'field_banners_category' => '3',
+      'field_accessories' => '6'
+    );
+    // $input_values = array ('1','4','5','3','6');
+
+    foreach($field_name_value as $key => $value) {
+      $form[$key]['#states'] = [
+        'visible' => [
+          'input[name="field_product_type"]' => ['value' => $value]
+        ]
+      ];
+    }
+
+    // $form['field_flags_category']['#states'] = [
+    //   'visible' => [
+    //     'input[name="field_product_type"]' => ['value' => '1']
+    //   ]
+    // ];
+
+    // $form['field_bunting_streamers_category']['#states'] = [
+    //   'visible' => [
+    //     'input[name="field_product_type"]' => ['value' => '4']
+    //   ]
+    // ];
+    // $form['field_display_exhibition_equipme']['#states'] = [
+    //   'visible' => [
+    //     'input[name="field_product_type"]' => ['value' => '5']
+    //   ]
+    // ];
+    // $form['field_banners_category']['#states'] = [
+    //   'visible' => [
+    //     'input[name="field_product_type"]' => ['value' => '3']
+    //   ]
+    // ];
+    // $form['field_accessories']['#states'] = [
+    //   'visible' => [
+    //     'input[name="field_product_type"]' => ['value' => '6']
+    //   ]
+    // ];
+  }
+}

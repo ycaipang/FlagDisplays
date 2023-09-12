@@ -1,0 +1,98 @@
+@import "../import";
+
+#header {
+  .navbar {
+    // .navbar-brand {
+    //     width: 175px;
+    //     height: auto;
+    //     margin: 0;
+    // }
+    #CollapsingNavbar {
+      justify-content: space-between;
+      #block-yc-theme-main-menu {
+        margin-left: 20px;
+        ul {
+          li {
+            a.nav-link {
+              margin: 0 18px;
+              padding: 8px 8px;
+              text-transform: uppercase;
+              font-weight: 600;
+              &:hover {
+                color: unset;
+              }
+            }
+          }
+        }
+      }
+      #block-yc-searchform {
+        .content {
+          #search-block-form {
+            .js-form-type-search, .form-actions {
+              margin: 0!important;
+            }
+            .form-actions {
+              height: 38px;
+              display: flex;
+              align-items: center;
+              background: $primary-dark;
+              border-radius: 50px;
+              width: 38px;
+              &::after {
+                content: '';
+                background-image: url("/themes/custom/YC_theme/images/svg/search_white.svg");
+                background-repeat: no-repeat;
+                position: relative;
+                left: 4px;
+                background-size: 20px 20px;
+                width: 20px;
+                height: 20px;
+              }
+              .button.form-submit {
+                display: none;
+              }
+            }
+            .js-form-type-search {
+              padding-right: 10px;
+              .form-search.form-control {
+                border-radius: 35px;
+              }
+            }
+          } 
+        }
+      }
+    }
+    &#navbar-top {
+      background-color: white!important;
+      .region {
+        #block-yc-theme-account-menu {
+          .nav {
+            a {
+              color: $gray-800;
+              padding-left: 0;
+            }
+          }
+        }
+      }
+    }
+    &#navbar-main {
+      padding: 15px 0;
+    }
+  }
+}
+
+.tel-no {
+  &.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .text-wrapper {
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.path-frontpage #block-yc-theme-content {
+  display: none;
+}

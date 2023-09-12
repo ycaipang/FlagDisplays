@@ -1,0 +1,54 @@
+global-styling:
+  version: VERSION
+  js: 
+    js/bootstrap.min.js: { weight: -48 }
+    js/barrio.js: {}
+    js/custom.js: {}
+  css:
+    component:
+      css/style.css: {}
+      css/header.css: {}
+
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/popperjs
+
+fonts:
+  css:
+    theme:
+      '//fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@400;700&family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;500;700': { type: external }
+      '//fonts.googleapis.com/css2?family=Anton&family=Nunito:wght@400;600;700&display=swap': { type: external }
+
+#start library
+slick:
+  js:
+    libraries/slick/slick.min.js: {}
+  css:
+    component:
+      libraries/slick/slick.css: {}
+
+view-frontpage-slider-main:
+  css:
+    theme:
+      css/view_frontpage_slider_main.css: {}
+  js:
+    js/slider.js: {}
+
+teasers:
+  css:
+    theme:
+      css/teasers.css: {}
+
+product-page-teasers:
+  css:
+    theme:
+      css/product_page_teasers.css: {}
+
+product-list-filters:
+  css:
+    theme:
+      css/view_product_filter.css: {}
+  js:
+    js/product-filter.js: {}
+  

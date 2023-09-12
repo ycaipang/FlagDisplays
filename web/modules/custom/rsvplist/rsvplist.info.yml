@@ -1,0 +1,10 @@
+name: 'RSVP List'
+type: module
+core_version_requirement: ^9
+description: 'Allow users to reserve for events'
+package: 'RSVP List'
+
+dependencies:
+  - drupal:block
+
+configure: rsvplist.admin.settings
