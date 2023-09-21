@@ -58,10 +58,19 @@
                         }
                     }
                 }
-              });
-
-           
+            });
         });
+
+        var queryString = window.location.search;
+        var urlParam = new URLSearchParams(queryString);
+        var prod_type = urlParam.get('type');
+        var flag_type = urlParam.get('flag');
+        // const professional = urlParam.get('professional');
+        if (prod_type == 1) {
+            // queryString = queryString.split('0')[0];
+            // alert(queryString);
+            flag_type = "All";
+        }
 
       }
     };
