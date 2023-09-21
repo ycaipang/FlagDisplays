@@ -51,4 +51,3 @@ product-list-filters:
       css/view_product_filter.css: {}
   js:
     js/product-filter.js: {}
-  
