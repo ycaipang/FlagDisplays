@@ -16,61 +16,29 @@
     Drupal.behaviors.product_filter = {
       attach: function(context, settings) {
 
-        $( "#edit-tid--2 ul li" ).on( "click", function() {
+        $("#edit-fd-type--2 ul li a.bef-link--selected").next().show(300);
+        $("#edit-fd-type--2 ul li a.bef-link--selected").parents().eq(1).show();
+        // var fd_class = $('.view-products .view-content .views-row .views-field span > div').attr("class");
+        // fd_class = fd_class.replace(/\s/g , ".");
 
-            $( "#edit-tid--2 ul li a" ).each(function() {
 
-                if ($(this).hasClass("bef-link--selected")) {
-                    var filterList = $( this ).attr("name");
-                    const filterPair = [
-                        {
-                            selected: "tid[6]", // accessories
-                            shown: "js-form-item-tid-3"
-                        },
-                        // {
-                        //     selected: "tid[2]", // banner stand and printed banners catalogue
-                        //     shown: "js-form-item-tid-2"
-                        // },
-                        {
-                            selected: "tid[3]", // banners
-                            shown: "js-form-item-tid-2"
-                        },
-                        {
-                            selected: "tid[4]", // bunting streamers
-                            shown: "js-form-item-tid-4"
-                        },
-                        {
-                            selected: "tid[5]", // display $ exhibition
-                            shown: "js-form-item-tid-5"
-                        },
-                        {
-                            selected: "tid[1]", // Flags
-                            shown: "js-form-item-tid-1"
-                        },
-                    ];
+        $('div.Feather.Flags').hide().slice(0, 12).show();
+        var more_btn = $( "<div id='object1'></div>" )
+        $('div.Feather.Flags:visible:last').parents().eq(2).append("<div id='object1'>View more...</div>");
 
-                    for (let i = 0; i < filterPair.length; i++) {
-                        console.log(filterPair[i].shown);
-                        if (filterList == filterPair[i].selected) {
-                            $("."+filterPair[i].shown).fadeIn( 800 );
-                        } else {
-                            $("."+filterPair[i].shown).fadeOut( 800 );
-                        }
-                    }
-                }
-            });
-        });
+        if ($(".view-products .view-empty")[0]) {
+            $("#content .section > div:nth-child(-n+6)").show();
+            $("#block-exposedformproductspage-1-2").hide();
+        } else {
+            $("#content .section > div:nth-child(-n+6)").hide();
+            $("#block-exposedformproductspage-1-2").show();
+        };
 
-        var queryString = window.location.search;
-        var urlParam = new URLSearchParams(queryString);
-        var prod_type = urlParam.get('type');
-        var flag_type = urlParam.get('flag');
-        // const professional = urlParam.get('professional');
-        if (prod_type == 1) {
-            // queryString = queryString.split('0')[0];
-            // alert(queryString);
-            flag_type = "All";
-        }
+
+        // $( "#edit-fd-type--2 ul li" ).on( "click", function() {
+        //     $( "#edit-tid--2 ul li a" ).each(function() {
+        //     });
+        // });
 
       }
     };
