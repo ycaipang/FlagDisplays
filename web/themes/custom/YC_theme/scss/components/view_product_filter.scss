@@ -4,16 +4,65 @@
     transition: 5s;
 }
 
-#edit-fd-type--2 ul ul {
-    display: none;
+#block-exposedformproductspage-1 {
+    border: none;
+    background-color: $accent-shade;
+    padding: 5px 0;
+    border-radius: 5px;
+    .js-form-item {
+        padding: 0;
+        margin-bottom: 0!important;
+        label {
+            color: $white;
+            padding: 5px 15px 10px 15px;
+            display: block;
+            // background: #134997;
+            font-size: 20px;
+            text-transform: uppercase;
+            border-bottom: 1px solid $primary-dark;
+        }
+    }
+    .form-actions {
+        margin-bottom: 0!important;
+    }
+    #edit-fd-type--2, #edit-fd-type--3 {
+        background: none;
+        padding: 0;
+        border: none;
+        ul {
+            padding: 0;
+            margin-bottom: 0;
+            ul {
+                display: none;
+                li {
+                    a {
+                        margin-left: 10px;
+                    }
+                }
+            } 
+            li {
+                list-style: none;
+                a {
+                    padding: 5px 15px;
+                    color: $white;
+                    display: block;
+                    text-decoration: none;
+                    &.bef-link--selected {
+                        background-color: #134997;
+                    }
+                }
+            }
+        }
+    }
 }
 
-#edit-fd-industry-all,
-#edit-fd-type-all,
-#edit-fd-hire-all,
-#edit-fd-events-all {
-    display: none;
-}
+
+// #edit-fd-industry-all,
+// #edit-fd-type-all,
+// #edit-fd-hire-all,
+// #edit-fd-events-all {
+//     display: none;
+// }
 
 div.Feather.Flags:nth-child(3) {
     display: none;

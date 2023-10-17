@@ -5,13 +5,13 @@
 #block-views-block-product-homepage-teasers-block-5,
 #block-views-block-product-homepage-teasers-block-6,
 #block-views-block-product-homepage-teasers-block-7 {
-  margin-bottom: 72px;
+  margin-bottom: 50px;
   .content {
     .view-product-homepage-teasers {
       .view-header {
-        margin-bottom: 2.5rem;
+        margin-bottom: 30px;
       }
-      .view-content.row {
+      .view-content {
         .teaser-item-list {
           ul {
             &.row {
@@ -19,15 +19,30 @@
             }
             li {
               list-style: none;
-              margin-bottom: 2.5rem;
+              margin-bottom: 20px;
               .views-field {
                 .field-content {
                   display: flex;
                   flex-direction: column;
                   align-items: center;
+                  background-color: $primary-shade;
+                  padding: 5px;
+                  background: $gray-100;
+                  border-radius: 5px;
+                  box-shadow: 0 2px 8px $gray-200;
                   .teaser-text {
                     h4 {
                       font-size: 20px;
+                    }
+                    .flag-desc, 
+                    .teaser-desc {
+                      p {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 3;
+                        -webkit-box-orient: vertical;
+                      }
                     }
                   }
                   .teaser-image {
@@ -49,6 +64,35 @@
           justify-content: center;
         }
       }
+      .more-link {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        a {
+          display: flex;
+          align-items: center;
+          background-color: $gray-200;
+          padding: 0.3125rem 1.25rem;
+          border-radius: 50px;
+          color: $gray-800;
+          &:hover {
+            text-decoration: none;
+            background-color: $gray-100;
+          }
+          &::after {
+            content: "";
+            width: 15px;
+            height: 15px;
+            background-image: url(/themes/custom/YC_theme/images/svg/arrow-right.svg);
+            -webkit-background-size: 20px 20px;
+            background-size: 15px 15px;
+            right: 15px;
+            top: 15px;
+            background-repeat: no-repeat;
+            margin-left: 0.3125rem;
+          }
+        }
+      }
     }
   }
 }
@@ -56,30 +100,21 @@
 #block-views-block-product-homepage-teasers-block-7 {
   .content {
     .view-product-homepage-teasers {
-      // .view-header {
-      // }
-      .view-content.row {
+      .view-content {
         .teaser-item-list {
           ul {
             li {
               .views-field {
                 .field-content {
-                  background: $gray-100;
-                  border-radius: 5px;
-                  box-shadow: 0 2px 8px $gray-200;
-                  .teaser-text {
-                    text-align: center;
-                    min-height: 60px;
-                  }
                   .teaser-image {
                     min-height: 240px;
                     display: flex;
                     align-items: center;
                     min-width: 100%;
-                    padding: 10px 0;
                     img {
-                      width: auto;
                       margin: 0 auto;
+                      object-fit: cover;
+                      height: 250px;
                     }
                   }
                 }
@@ -89,5 +124,11 @@
         }
       }
     }
+  }
+}
+
+.view-products {
+  .view-empty {
+    display: none;
   }
 }
