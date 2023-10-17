@@ -3,3 +3,41 @@
 .js-form-item-tid-1 {
     transition: 5s;
 }
+
+#edit-fd-type--2 ul ul {
+    display: none;
+}
+
+#edit-fd-industry-all,
+#edit-fd-type-all,
+#edit-fd-hire-all,
+#edit-fd-events-all {
+    display: none;
+}
+
+div.Feather.Flags:nth-child(3) {
+    display: none;
+}
+
+#block-exposedformproductspage-1-2 {
+    .content {
+        .form-item-fd-type {
+            display: none;
+        }
+        .form-item-fd-hire,
+        .form-item-fd-events,
+        .form-item-fd-industry {
+            width: 30%;
+        }
+    }
+}
+
+#block-exposedformproductspage-1 {
+    .content {
+        .form-item-fd-hire,
+        .form-item-fd-events,
+        .form-item-fd-industry {
+            display: none;
+        }
+    }
+}
