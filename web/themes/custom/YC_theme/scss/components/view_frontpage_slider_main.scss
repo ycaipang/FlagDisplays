@@ -3,6 +3,8 @@
 #block-views-block-frontpage-slider-main-block-1 {
   // background-image: linear-gradient(140deg, $gray-100 0%, $primary-light 50%, $gray-100 75%);
   padding: 0;
+  background-color: $gray-100;
+  margin-bottom: 50px;
   @include min(lg) {
     padding: 50px 0;
   }
@@ -62,6 +64,10 @@
           align-items: center;
           display: flex;
           flex-direction: row-reverse;
+            @include max(md) {
+              display: block;
+            }
+          }
         }
         .slick-list {
           padding: 0px!important;
@@ -132,6 +138,10 @@
           background-color: $accent-shade;
           padding: 0;
           margin-bottom: 0;
+          @include max(md) {
+            display: flex;
+            width: fit-content;
+          }
           li {
             list-style-type: none;
             button {
@@ -144,16 +154,21 @@
               @include max (lg) {
                 min-width: 150px;
               }
+              @include max(md) {
+                min-width: unset;
+                padding: 5px 5px;
+              }
             }
             &.slick-active {
               background-color: #134997;
-            }
+              
           }
         }
       }
     }
   }
 }
+
 
 #block-coloredtext {
   background-color: $primary-light;

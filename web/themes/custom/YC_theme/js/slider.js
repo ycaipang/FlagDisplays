@@ -22,13 +22,14 @@
         dots: true,
         infinite: true,
         arrows: false,
+        autoplay: true,
         responsive: [
           {
             breakpoint: 768,
             settings: {
               centerMode: true,
               centerPadding: '40px',
-              slidesToShow: 3
+              slidesToShow: 1
             }
           },
           {
