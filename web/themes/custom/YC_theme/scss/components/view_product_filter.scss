@@ -34,6 +34,9 @@
             margin-bottom: 0;
             ul {
                 display: none;
+                &.show {
+                    display: block;
+                }
                 li {
                     a {
                         margin-left: 10px;
@@ -56,18 +59,6 @@
     }
 }
 
-
-// #edit-fd-industry-all,
-// #edit-fd-type-all,
-// #edit-fd-hire-all,
-// #edit-fd-events-all {
-//     display: none;
-// }
-
-div.Feather.Flags:nth-child(3) {
-    display: none;
-}
-
 #block-exposedformproductspage-1-2 {
     .content {
         .form-item-fd-type {
@@ -88,5 +79,15 @@ div.Feather.Flags:nth-child(3) {
         .form-item-fd-industry {
             display: none;
         }
+    }
+}
+
+.feather-flags {
+    display: none;
+}
+
+#views-exposed-form-products-page-1 {
+    .exposed-row {
+        display: flex;
     }
 }
