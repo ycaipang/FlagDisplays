@@ -52,7 +52,12 @@ product-list-filters:
   js:
     js/product-filter.js: {}
 
-about-us-page:
+basic-page:
   css:
     theme:
-      css/about_us.css: {}
+      css/basic_page.css: {}
+
+newsletter:
+  css:
+    theme:
+      css/newsletter.css: {}

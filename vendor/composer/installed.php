@@ -448,6 +448,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'drupal/simplenews' => array(
+            'pretty_version' => '4.0.0-alpha3',
+            'version' => '4.0.0.0-alpha3',
+            'reference' => '4.0.0-alpha3',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/simplenews',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'drush/drush' => array(
             'pretty_version' => '11.6.0',
             'version' => '11.6.0.0',

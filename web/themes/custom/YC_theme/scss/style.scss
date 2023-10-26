@@ -27,10 +27,10 @@ a {
 
 .site-footer {
   .site-footer__top {
-    background: $primary-shade;
+    background: $gray-300;
   }
   .site-footer__bottom {
-    background: $primary-dark;
+    background: $gray-800;
   }
 }
 
@@ -112,4 +112,109 @@ a {
 
 .breadcrumb {
   margin-top: 30px;
+}
+
+//Footer
+footer.site-footer {
+  padding: 0;
+  .site-footer__top {
+    #block-socialmedia {
+      .soc-med {
+        ul {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          margin: 30px 0 15px;
+          li {
+            margin-right: 30px;
+            list-style: none;
+            &:last-child {
+              margin-right: 0;
+            }
+            a {
+              color: unset;
+              &:hover {
+                color: $gray-200;
+              }
+            }
+            svg {
+              width: 30px;
+              height: 30px;
+              fill: $primary-dark;
+              // &.bi-geo-alt-fill {
+              //   fill: #d70707;
+              // }
+              // &.bi-facebook {
+              //   fill: #43619c;
+              // }
+              // &.bi-twitter {
+              //   fill: #23a9e5;
+              // }
+              // &.bi-linkedin {
+              //   fill: #187fb8;
+              // }
+            }
+          }
+        }
+      }
+    }
+    #block-yc-theme-footer {
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 30px;
+        li {
+          margin-right: 30px;
+          &:last-child {
+            margin-right: 0;
+          }
+          a {
+            color: $primary-dark;
+          }
+        }
+      }
+    }
+  }
+  .site-footer__bottom {
+    #block-copyright {
+      text-align: center;
+      .copyright {
+        p {
+          margin-bottom: 0;
+          color: $gray-200!important;
+          a {
+            color: $primary-dark;
+          }
+        }
+      }
+    }
+  }
+}
+
+.btn.button-2 {
+  background: $gray-200;
+  border: 1px solid #a8acaf;
+  a {
+    color: $gray-800;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    &::after {
+      content: "";
+      width: 15px;
+      height: 15px;
+      background-image: url(/themes/custom/YC_theme/images/svg/arrow-right.svg);
+      background-size: 15px 15px;
+      right: 15px;
+      top: 15px;
+      background-repeat: no-repeat;
+      margin-left: 5px;
+    }
+  }
+  &:hover {
+    background: $gray-100;
+    border: 1px solid #a8acaf;
+  }
+  
 }
