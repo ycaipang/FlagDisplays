@@ -7,14 +7,14 @@
 #block-exposedformproductspage-1 {
     border: none;
     background-color: $accent-shade;
-    padding: 5px 0;
+    padding: 0;
     border-radius: 5px;
     .js-form-item {
         padding: 0;
         margin-bottom: 0!important;
         label {
             color: $white;
-            padding: 5px 15px 10px 15px;
+            padding: 15px 15px;
             display: block;
             // background: #134997;
             font-size: 20px;
@@ -39,14 +39,14 @@
                 }
                 li {
                     a {
-                        margin-left: 10px;
+                        padding-left: 25px;
                     }
                 }
             } 
             li {
                 list-style: none;
                 a {
-                    padding: 5px 15px;
+                    padding: 10PX 15px;
                     color: $white;
                     display: block;
                     text-decoration: none;
@@ -60,6 +60,10 @@
 }
 
 #block-exposedformproductspage-1-2 {
+    margin-bottom: 10px;
+    background-color: $primary-light;
+    padding: 20px;
+    border-radius: 5px;
     .content {
         .form-item-fd-type {
             display: none;
@@ -67,7 +71,27 @@
         .form-item-fd-hire,
         .form-item-fd-events,
         .form-item-fd-industry {
-            width: 30%;
+            // width: 30%;
+        }
+        .form-item-fd-events {
+            margin-right: 0px!important;
+        }
+    }
+    h2 {
+        text-transform: uppercase;
+        line-height: 1;
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
+    #views-exposed-form-products-page-1 {
+        // margin-bottom: 50px;
+        .exposed-row {
+            display: flex;
+            .js-form-item {
+                width: 100%;
+                margin-right: 30px;
+                margin-bottom: 0px!important;
+            }
         }
     }
 }
@@ -86,8 +110,37 @@
     display: none;
 }
 
-#views-exposed-form-products-page-1 {
-    .exposed-row {
-        display: flex;
+.Feather.Flags,
+.National.Flags {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.view-products {
+    h3 {
+        margin:20px 0;
+    }
+    .view-content.row {
+        align-items: center;
+        .views-row {
+            margin-bottom: 30px;
+            .views-field {
+                background: $primary-shade;
+                border-radius: 5px;
+                padding: 10px;
+                min-height: 285px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .field-content {
+                    img {
+                        max-width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+        }
     }
 }
