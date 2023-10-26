@@ -51,3 +51,8 @@ product-list-filters:
       css/view_product_filter.css: {}
   js:
     js/product-filter.js: {}
+
+about-us-page:
+  css:
+    theme:
+      css/about_us.css: {}
