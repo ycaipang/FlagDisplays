@@ -10,8 +10,10 @@
   .content {
     .view-product-homepage-teasers {
       .view-header {
-        width: 75%;
         margin-bottom: 40px;
+        @include min(md) {
+          width: 75%;
+        }
       }
       .view-content {
         .teaser-item-list {

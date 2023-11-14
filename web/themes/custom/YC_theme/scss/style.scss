@@ -107,7 +107,12 @@ a {
 
 // utilities
 #sidebar_first {
-  width: 25%;
+  @include min(lg) {
+    width: 20%;
+  }
+  @include max(md) {
+    width: 100%;
+  }
 }
 
 .breadcrumb {
@@ -217,4 +222,12 @@ footer.site-footer {
     border: 1px solid #a8acaf;
   }
   
+}
+
+.ajax-progress.ajax-progress-fullscreen {
+  display: none;
+}
+
+#page-wrapper {
+  overflow-x: hidden;
 }
