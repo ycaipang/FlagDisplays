@@ -36,22 +36,51 @@
 
 
         // add class to indentify flag category
-        $( "div.Feather.Flags" ).each(function() {
-          $( this ).parents().eq(2).addClass('feather-flags');
+        $(".view-products .view-content.row .views-row .views-field .field-content > div").each(function() {
+          var flagclass = $( this ).attr("class").toLowerCase();
+          $( this ).parents().eq(2).addClass(''+flagclass+'-flags');
         });
+
 
         var queryString = window.location.search;
         var urlParam = new URLSearchParams(queryString);
         var prod_type = urlParam.get('fd_type');
+        var flagobj = {};
+        var filterobj = {};
 
-        if (prod_type == 1 && $(".view-products .view-content > div").hasClass('feather-flags')) {
-          $('div.feather-flags:lt(9)').show();
-          $('div.feather-flags:visible:last').html('<div id="more-btn"><a href="/products?fd_type=117&fd_industry=All&fd_hire=All&fd_events=All">View more...</a></div>');
-        } else {
-          $(".view-products .view-content > div").removeClass('feather-flags');
-        }
+        // get the flag classes
+        $(".view-products .view-content > div").each(function() {
+          $.each(( this.className || '' ).split(/\s+/), function (i, v) {
+            flagobj[v] = true;
+          })
+        })
+        var flagclasses = $.map(flagobj, function (val, key) {
+          return key == '' ? undefined : key;
+        })
         
+        var newflagclasses = flagclasses.filter(function(value) {
+          return value.indexOf('col') < 0 && value.indexOf('views') < 0 && value.indexOf('more-btn') < 0;
+        })
 
+        for (var i = 0; i < newflagclasses.length; i++) {
+          if (prod_type == 1 && $(".view-products .view-content > div").hasClass(newflagclasses[i]) && $('#btn-'+newflagclasses[i]+'').length == 0) {
+            $('div.'+newflagclasses[i]+':lt(9)').show();
+            if ( $('#btn-'+newflagclasses[i]+'').length == 0 ) {
+              let textsplit = newflagclasses[i].split('-')[0];
+              let splitCap = textsplit.substr(0,1).toUpperCase()+textsplit.substr(1);
+              let filterlink = $('#block-exposedformproductspage-1 #edit-fd-type--2 ul ul li a:contains("'+splitCap+'")').attr('href');
+              let filtername = $('#block-exposedformproductspage-1 #edit-fd-type--2 ul ul li a:contains("'+splitCap+'")').attr('name');
+              let filterid = $('#block-exposedformproductspage-1 #edit-fd-type--2 ul ul li a:contains("'+splitCap+'")').attr('id');
+
+              $('div.'+newflagclasses[i]+':visible:last').replaceWith('<div id="btn-'+newflagclasses[i]+'" class="more-btn"><a href="'+filterlink+'" id="'+filterid+'" name="'+filtername+'">View more</a></div>');
+              
+            }
+          } else if ($('#btn-'+newflagclasses[i]+'').length > 0) {
+            $('div.'+newflagclasses[i]+':lt(8)').show();
+          } else {
+            $(".view-products .view-content > div").removeClass(newflagclasses[i]);
+          }
+        }
       }
     };
   

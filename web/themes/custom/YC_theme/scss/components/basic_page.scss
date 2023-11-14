@@ -1,0 +1,129 @@
+@import "../import";
+
+.node {
+    // .field--name-body {
+    //     > div {
+    //         padding: 20px 0;
+    //         margin-bottom: 30px;
+    //     }
+    //     .two-col {
+    //         display: flex;
+    //         align-items: center;
+    //         justify-content: center;
+    //         .col-text {
+    //             width: 60%;
+    //         }
+    //         .col-img {
+    //             width: 40%;
+    //             display: flex;
+    //             align-items: center;
+    //             justify-content: center;
+    //             position: relative;
+    //             &::after {
+    //                 content: "";
+    //                 height: 250px;
+    //                 width: 250px;
+    //                 background: #fbf9ec;
+    //                 display: block;
+    //                 position: absolute;
+    //                 z-index: -1;
+    //                 border-radius: 200px;
+    //                 top: 0;
+    //                 right: 100px;
+    //             }
+    //         }
+    //     }
+    //     .one-col {
+    //         background: #fbf9ec;
+    //     }
+    //     .full-w {
+    //         box-shadow: 0 0 0 100vmax #fbf9ec;
+    //         clip-path: inset(0 -100vmax);
+    //         padding: 50px 0;
+    //     }
+    // }
+
+    .layout {
+        margin-bottom: 50px;
+        padding: 0 0 20px 0;
+        &.layout--onecol {
+            .full-w {
+                box-shadow: 0 0 0 100vmax #fbf9ecad;
+                clip-path: inset(0 -100vmax);
+                padding: 3.125rem 0;
+                background: #fbf9ecad;
+            }
+            .contact-main-text,
+            .about-main-text {
+                h2 {
+                    font-size: 40px;
+                    text-transform: uppercase;
+                }
+                p {
+                    line-height: 2;
+                }
+            }
+        }
+        &.layout--twocol-section {
+            .layout__region--second {
+                .col-img {
+                    display: flex;
+                    align-items: center;
+                    justify-content: end;
+                    position: relative;
+                    &::after {
+                        content: "";
+                        height: 225px;
+                        width: 225px;
+                        background: #fbf9ec;
+                        display: block;
+                        position: absolute;
+                        z-index: -1;
+                        border-radius: 200px;
+                        right: 60px;
+                    }
+                }
+                .location-hours {
+                    padding: 20px;
+                    height: 450px;
+                    background: $primary-light;
+                }
+                ul {
+                    &.store-hours {
+                        padding: 0;
+                    }
+                    li {
+                        list-style: none;
+                    }
+                }
+            }
+        }
+    }
+}
+.block-webform-block {
+
+    #webform-submission-contact-node-126-add-form,
+    #webform-submission-contact-node-365-add-form {
+        display: flex;
+        #edit-form-col-right {
+            flex: 40%;
+            margin-right: 30px;
+        }
+        #edit-form-col-left {
+            flex: 60%;
+            textarea {
+                height: 195px;
+            }
+            #edit-actions {
+                display: flex;
+                justify-content: end;
+                button {
+                    padding: 5px 30px;
+                }
+            }
+        }
+        .form-wrapper {
+            margin-bottom: 0!important;
+        }
+    }
+}

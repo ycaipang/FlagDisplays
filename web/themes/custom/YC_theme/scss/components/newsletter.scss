@@ -1,0 +1,55 @@
+@import "../import";
+
+.block-simplenews-subscription-block {
+    padding: 70px 0;
+    box-shadow: 0 0 0 100vmax #fbf9ecad;
+    clip-path: inset(0 -100vmax);
+    background: #fbf9ecad;
+    margin-bottom: 50px;
+    .bi-envelope-paper-heart-fill {
+        text-align: center;
+        display: block;
+        width: 150px;
+        height: 150px;
+        fill: $accent-shade;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+    h2 {
+        text-transform: uppercase;
+        text-align: center;
+    }
+    p {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .content {
+        form {
+            display: flex;
+            label {
+                display: none;
+            }
+            #edit-actions,
+            #edit-actions--2 {
+                width: 35%;
+                margin-right: 0px!important;
+                button {
+                    width: 100%;
+                    height: 50px;
+                }
+            }
+            > div {
+                margin: 0 20px 0 0!important;
+                > div {
+                    margin-bottom: 0!important;
+                }
+                input {
+                    height: 50px;
+                }
+            }
+            #edit-subscriptions-wrapper {
+                display: none;
+            }
+        }
+    }
+}
