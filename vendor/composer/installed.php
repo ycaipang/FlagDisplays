@@ -439,6 +439,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'drupal/mix' => array(
+            'pretty_version' => '1.9.0-rc1',
+            'version' => '1.9.0.0-RC1',
+            'reference' => '1.9.0-rc1',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/mix',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'drupal/recommended-project' => array(
             'pretty_version' => '1.0.0+no-version-set',
             'version' => '1.0.0.0',
