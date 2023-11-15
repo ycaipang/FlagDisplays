@@ -8,17 +8,16 @@
     border: none;
     padding: 0;
     border-radius: 5px;
-    background: $primary-shade;
+    background: $accent-light;
     .js-form-item {
         padding: 0;
         margin-bottom: 0!important;
         label {
-            color: $accent-shade;
+            color: $primary-shade;
             padding: 10px 15px;
             display: block;
             text-transform: uppercase;
             border-bottom: 1px solid #c5ccd35c;
-            font-size: 18px;
             font-weight: 600;
         }
     }
@@ -49,14 +48,14 @@
                     padding: 10PX 15px;
                     display: block;
                     text-decoration: none;
-                    color: $gray-300;
+                    color: $primary-shade;
                     &.bef-link--selected {
-                        background-color: #f3f4f9;
+                        background-color: $accent-shade;
                         font-weight: 700;
-                        color: $accent-shade;
+                        color: $primary-dark;
                     }
                     &:hover {
-                        background-color: #f3f4f9 ;
+                        background-color: $accent-shade ;
                     }
                 }
             }
@@ -66,7 +65,7 @@
 
 #block-exposedformproductspage-1-2 {
     .content {
-        margin-bottom: 30px;
+        margin-bottom: 50px;
         .form-item-fd-type {
             display: none;
         }
@@ -93,8 +92,9 @@
                 padding: 10px 15px;
                 border-radius: 4px;
                 label {
-                    color: $accent-shade;
+                    font-weight: 600;
                     margin-bottom: 10px;
+                    color: $accent-light;
                 }
                 .form-select {
                     border: 1px solid rgba(197, 204, 211, 0.3607843137);
@@ -144,7 +144,7 @@
             background: $primary-dark;
             position: relative;
             display: inline-block;
-            margin-right: 2px;
+            margin-right: 5px;
         }
     }
     .view-content.row {
@@ -208,7 +208,7 @@
             }
         }
         .more-btn {
-            margin-bottom: 30px;
+            margin-bottom: 50px;
             text-align: -webkit-right;
             a {
                 display: flex;
