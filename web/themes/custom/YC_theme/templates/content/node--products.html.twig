@@ -59,8 +59,9 @@
  * @see template_preprocess_node()
  */
 #}
-{{ attach_library('bootstrap_barrio/node') }}
 {{ attach_library('YC_theme/productnode') }}
+{{ attach_library('bootstrap_barrio/node') }}
+
 
 {%
   set classes = [
@@ -75,102 +76,145 @@
 %}
 
 
-<article{{ attributes.addClass(classes) }}>
-  <header>
-    {{ title_prefix }}
-    {% if label and not page %}
-      <h2{{ title_attributes.addClass('node__title') }}>
-        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-      </h2>
-    {% endif %}
-    {{ title_suffix }}
-    {% if display_submitted %}
-      {# Display the submission information here if needed #}
-    {% endif %}
-  </header>
-  <div class=""> {# Center the entire content div #}
-    <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
-      <div class="node__content-left text-center img-wrapper">
-    <img src="{{ file_url(content.field_image['#items'].entity.uri.value) }}" class="image" alt="content-image" style="height: 400px; width: auto;" />
-</div>
+<article{{attributes.addClass(classes)}}>
+	<header>
+		{{ title_prefix }}
+		{% if label and not page %}
+			<h2{{title_attributes.addClass('node__title')}}>
+				<a href="{{ url }}" rel="bookmark">{{ label }}</a>
+			</h2>
+		{% endif %}
+		{{ title_suffix }}
+		{% if display_submitted %}
+			{# Display the submission information here if needed #}
+		{% endif %}
+	</header>
+	<div
+		class="">
+		{# Center the entire content div #}
+		<div{{content_attributes.addClass('node__content','clearfix')}}>
+			<div class="node__content-left text-center img-wrapper">
+				<img src="{{ file_url(content.field_image['#items'].entity.uri.value) }}" class="image" alt="content-image" style="height: 400px; width: auto;"/>
+			</div>
 
-      <div class="node__content-right">
-        <h1>{{ node.label }}</h1>
-        <div>
-          {% if content.field_for_hire.0["#title"] == "Yes" %}
-            <span class="badge rounded-pill text-bg-success text-white">For Hire</span>
-          {% else %}
-            <span class="badge rounded-pill text-bg-danger text-white">Not for Hire</span>
-          {% endif %}
-          <br>
-          <a href={{ content.field_pdf.0["#markup"] }}>PDF</a>
-         
-        </div>
-        {# Add more placeholders for content as needed #}
-        <div class="accordion accordion-flush" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-       Industry
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-         {{ content.field_industry }}
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        Accordion Item #2
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingThree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        Accordion Item #3
-      </button>
-    </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-      </div>
-    </div>
-  </div>
-</div>
-      </div>
-      
-    </div>
-  </div>
+			<div class="node__content-right">
+				<div style="display: flex; align-items: center;">
+					<h1 style="margin-right: 10px;">{{ node.label }}</h1>
+					{% if content.field_for_hire.0["#title"] == "Yes" %}
+						<span class="badge rounded-pill text-bg-success text-white">For Hire</span>
+					{% else %}
+						<span class="badge rounded-pill text-bg-danger text-white">Not for Hire</span>
+					{% endif %}
+				</div>
+				<button class="btn btn-primary d-flex align-items-center justify-content-center text-sm fw-medium border bg-background h-11 rounded-md px-4 w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 me-2">
+						<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+						<polyline points="14 2 14 8 20 8"></polyline>
+					</svg>
+					View PDF
+				</button>
+
+
+				{# Add more placeholders for content as needed #}
+				<div class="accordion accordion-flush" id="accordionExample">
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingOne">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+								Industry
+							</button>
+						</h2>
+						<div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								{{ content.field_industry }}
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingTwo">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc2" aria-expanded="true" aria-controls="collapseOne">
+								PDF
+							</button>
+						</h2>
+						<div id="acc2" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								<a href={{ content.field_pdf.0["#markup"] }}>PDF</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
 </article>
 <br>
 <br>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.269/pdf.min.mjs" type="module"></script>
 
-<style>
-  .node__content {
-    display: flex;
-  }
+<script type="module">
+	// If absolute URL from the remote server is provided, configure the CORS
+// header on that server.
+var url = '{{ content.field_pdf.0["#markup"] }}';
 
-  .node__content-left,
-  .node__content-right {
-    flex: 1;
-  }
+// Loaded via <script> tag, create shortcut to access PDF.js exports.
+var {
+pdfjsLib
+} = globalThis;
 
-  .node__content-left img {
-    text-align: center;
-  }
+// The workerSrc property shall be specified.
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.269/pdf.worker.min.mjs';
 
-  .node__content-right h1,
-  .node__content-right p {
-    text-align: left;
-  }
+// Asynchronous download of PDF
+var loadingTask = pdfjsLib.getDocument(url);
+loadingTask.promise.then(function (pdf) {
+console.log('PDF loaded');
 
-  /* Additional styling can be added as necessary */
-</style>
+// Fetch the first page
+var pageNumber = 1;
+pdf.getPage(pageNumber).then(function (page) {
+console.log('Page loaded');
+
+//var scale = 1.5;
+//var viewport = page.getViewport({scale: scale});
+var desiredWidth = 100;
+var viewport = page.getViewport({ scale: 1, });
+var scale = desiredWidth / viewport.width;
+var scaledViewport = page.getViewport({ scale: scale, });
+// Prepare canvas using PDF page dimensions
+var canvas = document.getElementById('the-canvas');
+var context = canvas.getContext('2d');
+canvas.height = viewport.height;
+canvas.width = viewport.width;
+
+// Render PDF page into canvas context
+var renderContext = {
+canvasContext: context,
+viewport: viewport
+};
+var renderTask = page.render(renderContext);
+renderTask.promise.then(function () {
+console.log('Page rendered');
+});
+});
+}, function (reason) { // PDF loading error
+console.error(reason);
+});
+</script>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">PDF</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<canvas id="the-canvas"></canvas>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Download</button>
+			</div>
+		</div>
+	</div>
+</div>
