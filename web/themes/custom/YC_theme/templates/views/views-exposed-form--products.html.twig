@@ -17,5 +17,8 @@
 {{ q }}
 {% endif %}
 <div class="exposed-row">
-  {{ form }}
+  {{ form|without('term_node_tid_depth_4') }}
+</div>
+<div class="exposed-pills">
+  {{ form|without('fd_type','fd_industry','fd_hire','fd_events' ) }}
 </div>

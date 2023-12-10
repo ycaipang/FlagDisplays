@@ -36,17 +36,36 @@
 
 
         // add class to indentify flag category
-        $(".view-products .view-content.row .views-row .views-field .field-content > div").each(function() {
+        $(".view-products .view-content .views-row .views-field .field-content > div").each(function() {
           var flagclass = $( this ).attr("class").toLowerCase();
-          $( this ).parents().eq(2).addClass(''+flagclass+'-flags');
+          var flagid = $( this ).attr("name");
+          $( this ).parents().eq(2).addClass(''+flagclass+'-flags').attr("size-name", flagid);
         });
-
 
         var queryString = window.location.search;
         var urlParam = new URLSearchParams(queryString);
         var prod_type = urlParam.get('fd_type');
         var flagobj = {};
-        var filterobj = {};
+        var flagattobj = {};
+
+        if (prod_type < 10 ) {
+          $('#block-exposedformproductspage-1-2').hide();
+        }
+
+        $(".view-products .view-content .views-row").each(function() {
+          flagattobj[$(this).attr('size-name')] = true; 
+        });
+        var atttresult = new Array();
+        for(var i in flagattobj) {
+          atttresult.push(i);
+        }
+        
+        for (var g = 0; g < atttresult.length; g++) {
+          if (prod_type != 1 && $('.column-'+atttresult[g]+'').length == 0 ) {
+          // $('.view-products .view-content .views-row[size-name="'+atttresult[g]+'"]').wrapAll('<div class="column-'+atttresult[g]+' row" />');
+          // $('<h4>'+atttresult[g]+'</h4>').insertBefore('.column-'+atttresult[g]+'');
+          }
+        }
 
         // get the flag classes
         $(".view-products .view-content > div").each(function() {
@@ -63,22 +82,18 @@
         })
 
         for (var i = 0; i < newflagclasses.length; i++) {
-          if (prod_type == 1 && $(".view-products .view-content > div").hasClass(newflagclasses[i]) && $('#btn-'+newflagclasses[i]+'').length == 0) {
-            $('div.'+newflagclasses[i]+':lt(9)').show();
+          if (prod_type == 1 && $('div.'+newflagclasses[i]+'').length > 0 && $('#btn-'+newflagclasses[i]+'').length == 0) {
+            $('div.'+newflagclasses[i]+':gt(8)').hide();
             if ( $('#btn-'+newflagclasses[i]+'').length == 0 ) {
-              let textsplit = newflagclasses[i].split('-')[0];
-              let splitCap = textsplit.substr(0,1).toUpperCase()+textsplit.substr(1);
-              let filterlink = $('#block-exposedformproductspage-1 #edit-fd-type--2 ul ul li a:contains("'+splitCap+'")').attr('href');
-              let filtername = $('#block-exposedformproductspage-1 #edit-fd-type--2 ul ul li a:contains("'+splitCap+'")').attr('name');
-              let filterid = $('#block-exposedformproductspage-1 #edit-fd-type--2 ul ul li a:contains("'+splitCap+'")').attr('id');
+              var textsplit = newflagclasses[i].split('-')[0];
+              var splitCap = textsplit.substr(0,1).toUpperCase()+textsplit.substr(1);
+              var filterlink = $('#block-exposedformproductspage-1 #edit-fd-type--2 ul ul li a:contains("'+splitCap+'")').attr("href");
+              var filtername = $('#block-exposedformproductspage-1 #edit-fd-type--2 ul ul li a:contains("'+splitCap+'")').attr('name');
+              var filterid = $('#block-exposedformproductspage-1 #edit-fd-type--2 ul ul li a:contains("'+splitCap+'")').attr('id');
 
               $('div.'+newflagclasses[i]+':visible:last').replaceWith('<div id="btn-'+newflagclasses[i]+'" class="more-btn"><a href="'+filterlink+'" id="'+filterid+'" name="'+filtername+'">View more</a></div>');
               
             }
-          } else if ($('#btn-'+newflagclasses[i]+'').length > 0) {
-            $('div.'+newflagclasses[i]+':lt(8)').show();
-          } else {
-            $(".view-products .view-content > div").removeClass(newflagclasses[i]);
           }
         }
       }

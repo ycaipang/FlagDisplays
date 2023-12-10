@@ -26,7 +26,7 @@
                   flex-direction: column;
                   align-items: center;
                   background-color: $primary-shade;
-                  padding: 5px;
+                  padding: 10px;
                   background: $gray-100;
                   border-radius: 5px;
                   box-shadow: 0 2px 8px $gray-200;
@@ -71,25 +71,26 @@
         a {
           display: flex;
           align-items: center;
-          background-color: $gray-200;
+          background: $accent-light;
           padding: 0.3125rem 1.25rem;
           border-radius: 50px;
-          color: $gray-800;
-          &:hover {
-            text-decoration: none;
-            background-color: $gray-100;
-          }
+          color: $primary-light;
           &::after {
             content: "";
             width: 15px;
             height: 15px;
-            background-image: url(/themes/custom/YC_theme/images/svg/arrow-right.svg);
             -webkit-background-size: 20px 20px;
             background-size: 15px 15px;
             right: 15px;
             top: 15px;
             background-repeat: no-repeat;
             margin-left: 0.3125rem;
+            mask-image: url("../images/svg/arrow-right.svg");
+            background-color: $primary-light;
+          }
+          &:hover {
+              text-decoration: none;
+              background-color: $accent-shade;
           }
         }
       }
