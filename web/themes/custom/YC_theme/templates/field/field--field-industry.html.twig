@@ -61,6 +61,7 @@
     {# Get the content and add a class to the anchor tag #}
     {% set modified_content = item.content|merge({'#attributes': {'class': ['badge rounded-pill text-bg-primary']}}) %}
     {{ modified_content }}
+    <br>
 
 
       {% endfor %}
