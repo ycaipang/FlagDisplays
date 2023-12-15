@@ -94,7 +94,7 @@
 		{# Center the entire content div #}
 		<div {{content_attributes.addClass('content')}}>
 			<div class="row">
-				<div class="col-md-6 d-flex align-items-center justify-content-center">
+				<div class="col-md-6">
 					<div style="background-color: #f0f0f0; border-radius: 10px; margin: 10px; overflow: hidden;" class="p-3 d-flex align-items-center justify-content-center w-100">
 						<img src="{{ file_url(content.field_image['#items'].entity.uri.value) }}" class="image img-fluid" alt="content-image" style="max-height: 340px;"/>
 					</div>
@@ -117,7 +117,7 @@
 								<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
 								<polyline points="14 2 14 8 20 8"></polyline>
 							</svg>
-							View PDF
+							View Layout
 						</button>
 
 						<div class="accordion accordion-flush" id="accordionExample">
@@ -240,7 +240,7 @@ console.error(reason);
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalLabel">{{ node.label }}
-					PDF</h5>
+					Layout</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
