@@ -1,19 +1,2 @@
 @import "../import";
 
-  .node__content {
-    display: flex;
-  }
-
-  .node__content-left,
-  .node__content-right {
-    flex: 1;
-  }
-
-  .node__content-left img {
-    text-align: center;
-  }
-
-  .node__content-right h1,
-  .node__content-right p {
-    text-align: left;
-  }
