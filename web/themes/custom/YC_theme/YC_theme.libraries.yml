@@ -61,3 +61,8 @@ newsletter:
   css:
     theme:
       css/newsletter.css: {}
+
+productnode:
+  css:
+    theme:
+      css/product_node.css: {}
