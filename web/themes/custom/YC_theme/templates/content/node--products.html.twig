@@ -89,36 +89,92 @@
 			{# Display the submission information here if needed #}
 		{% endif %}
 	</header>
-	<div class=""> {# Center the entire content div #} <div {{content_attributes.addClass('node__content','clearfix')}}>
-		<div class="node__content-left text-center img-wrapper">
-			<div style="background-color: #f0f0f0; border-radius: 10px; margin: 10px; display: flex; justify-content: center; align-items: center;  overflow: hidden;" class="p-3">
-				<img src="{{ file_url(content.field_image['#items'].entity.uri.value) }}" class="image img-fluid" alt="content-image" style="max-height: 340px;"/>
-			</div>
-		</div>
-
-
-		<div class="node__content-right">
-		<div style="display: flex; align-items: center;">
-			<h1 style="margin-right: 10px;">{{ node.label }}</h1> {% if content.field_for_hire.0["#title"] == "Yes" %} <span class="badge rounded-pill text-bg-success text-white">For Hire</span> {% else %} <span class="badge rounded-pill text-bg-danger text-white">Not for Hire</span> {% endif %}
-		</div>
-		<button class="btn btn-primary d-flex align-items-center justify-content-center text-sm fw-medium border bg-background h-11 rounded-md px-4 w-100 mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="setTimeout(view_pdf, 500)">
-			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 me-2">
-			<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-			<polyline points="14 2 14 8 20 8"></polyline>
-			</svg> View PDF </button> {# Add more placeholders for content as needed #} <div class="accordion accordion-flush" id="accordionExample">
-			<div class="accordion-item">
-			<h2 class="accordion-header" id="panelsStayOpen-headingOne">
-				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne"> Industry </button>
-			</h2>
-			<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-				<div class="accordion-body">
-				{{ content.field_industry }}
+	<div
+		class="">
+		{# Center the entire content div #}
+		<div {{content_attributes.addClass('content')}}>
+			<div class="row">
+				<div class="col-md-6 d-flex align-items-center justify-content-center">
+					<div style="background-color: #f0f0f0; border-radius: 10px; margin: 10px; overflow: hidden;" class="p-3 d-flex align-items-center justify-content-center w-100">
+						<img src="{{ file_url(content.field_image['#items'].entity.uri.value) }}" class="image img-fluid" alt="content-image" style="max-height: 340px;"/>
+					</div>
 				</div>
-			</div>
+
+
+				<div class="col-md-6">
+					<div>
+						<div style="display: flex; align-items: center;">
+							<h1 style="margin-right: 10px;">{{ node.label }}</h1>
+							{% if content.field_for_hire.0["#title"] == "Yes" %}
+								<span class="badge rounded-pill text-bg-success text-white">For Hire</span>
+							{% else %}
+								<span class="badge rounded-pill text-bg-danger text-white">Not for Hire</span>
+							{% endif %}
+						</div>
+
+						<button class="btn btn-primary d-flex align-items-center justify-content-center text-sm fw-medium border bg-background h-11 rounded-md px-4 w-100 mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="setTimeout(view_pdf, 500)">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 me-2">
+								<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+								<polyline points="14 2 14 8 20 8"></polyline>
+							</svg>
+							View PDF
+						</button>
+
+						<div class="accordion accordion-flush" id="accordionExample">
+							{% if content.field_industry['#title'] %}
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="panelsStayOpen-headingOne">
+										<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+											Industry
+										</button>
+									</h2>
+									<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+										<div class="accordion-body">
+											{{ content.field_industry }}
+										</div>
+									</div>
+								</div>
+							{% endif %}
+
+							{% if content.field_product_type['#title'] %}
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+										<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+											Product Type
+										</button>
+									</h2>
+									<div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
+										<div class="accordion-body">
+											{{ content.field_product_type }}
+										</div>
+									</div>
+								</div>
+							{% endif %}
+
+							{% if content.field_events['#title'] %}
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="panelsStayOpen-headingThree">
+										<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true" aria-controls="panelsStayOpen-collapseThree">
+											Event
+										</button>
+									</h2>
+									<div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingThree">
+										<div class="accordion-body">
+											{{ content.field_events }}
+										</div>
+									</div>
+								</div>
+							{% endif %}
+						</div>
+
+
+					</div>
+				</div>
+
+
 			</div>
 		</div>
-		</div>
-	</div>
+
 	</div>
 </article>
 <br>
@@ -126,64 +182,65 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.269/pdf.min.mjs" type="module"></script>
 
 <script type="module">
-    
-    var { pdfjsLib } = globalThis;
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.269/pdf.worker.min.mjs';
+
+	var {
+pdfjsLib
+} = globalThis;
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.269/pdf.worker.min.mjs';
 </script>
 
 <script>
-    function view_pdf() {
-		
-		var url = '{{ content.field_pdf.0["#markup"] }}';
-		if (!url) {
-			alert("No PDF found");
-		}
-        var loadingTask = pdfjsLib.getDocument(url);
-        loadingTask.promise.then(function (pdf) {
-            console.log('PDF loaded');
-            var pageNumber = 1;
-            pdf.getPage(pageNumber).then(function (page) {
-                console.log('Page loaded');
-                var desiredWidth = document.querySelector('.pdfWrapper').clientWidth;
-				console.log(desiredWidth);
-				var adjWidth = desiredWidth;
-                var viewport = page.getViewport({ scale: 1 });
-                var scale = adjWidth / viewport.width;
-                var scaledViewport = page.getViewport({ scale: scale });
-                var canvas = document.getElementById('the-canvas');
-                var context = canvas.getContext('2d');
-                canvas.height = scaledViewport.height;
-                canvas.width = scaledViewport.width;
-                console.log(adjWidth);
-                console.log(scale);
-                console.log(canvas.height, canvas.width);
-                var renderContext = {
-                    canvasContext: context,
-                    viewport: scaledViewport
-                };
-                var renderTask = page.render(renderContext);
-                renderTask.promise.then(function () {
-                    console.log('Page rendered');
-                });
-            });
-        }).catch(function (reason) {
-            console.error(reason);
-        });
-    }
+	function view_pdf() {
 
-    // Execute view_pdf function after a delay of 500ms
-    
+var url = '{{ content.field_pdf.0["#markup"] }}';
+if (! url) {
+alert("No PDF found");
+}
+var loadingTask = pdfjsLib.getDocument(url);
+loadingTask.promise.then(function (pdf) {
+console.log('PDF loaded');
+var pageNumber = 1;
+pdf.getPage(pageNumber).then(function (page) {
+console.log('Page loaded');
+var desiredWidth = document.querySelector('.pdfWrapper').clientWidth;
+console.log(desiredWidth);
+var adjWidth = desiredWidth;
+var viewport = page.getViewport({scale: 1});
+var scale = adjWidth / viewport.width;
+var scaledViewport = page.getViewport({scale: scale});
+var canvas = document.getElementById('the-canvas');
+var context = canvas.getContext('2d');
+canvas.height = scaledViewport.height;
+canvas.width = scaledViewport.width;
+console.log(adjWidth);
+console.log(scale);
+console.log(canvas.height, canvas.width);
+var renderContext = {
+canvasContext: context,
+viewport: scaledViewport
+};
+var renderTask = page.render(renderContext);
+renderTask.promise.then(function () {
+console.log('Page rendered');
+});
+});
+}).catch(function (reason) {
+console.error(reason);
+});
+}
+
+// Execute view_pdf function after a delay of 500ms
 </script>
 
 <script></script>
-
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">{{ node.label }} PDF</h5>
+				<h5 class="modal-title" id="exampleModalLabel">{{ node.label }}
+					PDF</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
@@ -193,7 +250,9 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-				<a href={{ content.field_pdf.0["#markup"] }}><button type="button" class="btn btn-primary">Download</button></a>
+				<a href={{ content.field_pdf.0["#markup"] }}>
+					<button type="button" class="btn btn-primary">Download</button>
+				</a>
 			</div>
 		</div>
 	</div>
