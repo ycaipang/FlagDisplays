@@ -111,8 +111,10 @@
 								<span class="badge rounded-pill text-bg-danger text-white">Not for Hire</span>
 							{% endif %}
 						</div>
-
-						<button class="btn btn-primary d-flex align-items-center justify-content-center text-sm fw-medium border bg-background h-11 rounded-md px-4 w-100 mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="setTimeout(view_pdf, 500)">
+						{% if content.field_size_dimension['#title'] %}
+							<p><strong>{{content.field_size_dimension['#title']}}:</strong> {{content.field_size_dimension.0}}</p>
+						{% endif %}
+						<button class="btn btn-primary d-flex align-items-center justify-content-center text-sm fw-medium border bg-background h-11 rounded-md px-4 w-100 mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="setTimeout(view_pdf, 500)">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 me-2">
 								<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
 								<polyline points="14 2 14 8 20 8"></polyline>
@@ -124,11 +126,11 @@
 							{% if content.field_industry['#title'] %}
 								<div class="accordion-item">
 									<h2 class="accordion-header" id="panelsStayOpen-headingOne">
-										<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
 											Industry
 										</button>
 									</h2>
-									<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+									<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
 										<div class="accordion-body">
 											{{ content.field_industry }}
 										</div>
@@ -138,12 +140,12 @@
 
 							{% if content.field_product_type['#title'] %}
 								<div class="accordion-item">
-									<h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-										<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+									<h2 class="accordion-header" id="panelsStayOpen-headingOne">
+										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
 											Product Type
 										</button>
 									</h2>
-									<div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
+									<div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
 										<div class="accordion-body">
 											{{ content.field_product_type }}
 										</div>
@@ -153,12 +155,12 @@
 
 							{% if content.field_events['#title'] %}
 								<div class="accordion-item">
-									<h2 class="accordion-header" id="panelsStayOpen-headingThree">
-										<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true" aria-controls="panelsStayOpen-collapseThree">
+									<h2 class="accordion-header" id="panelsStayOpen-headingOne">
+										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
 											Event
 										</button>
 									</h2>
-									<div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingThree">
+									<div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
 										<div class="accordion-body">
 											{{ content.field_events }}
 										</div>
