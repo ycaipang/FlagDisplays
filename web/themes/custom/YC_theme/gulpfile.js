@@ -27,6 +27,7 @@ const paths = {
     watch: './scss/**/*.scss',
     bootstrap: './node_modules/bootstrap/scss/bootstrap.scss',
     comp_src: './scss/components/*.scss',
+    node_src: './scss/nodes/*.scss',
   },
   js: {
     bootstrap: './node_modules/bootstrap/dist/js/bootstrap.min.js',
@@ -38,7 +39,7 @@ const paths = {
 
 // Compile sass into CSS & auto-inject into browsers
 function styles () {
-  return gulp.src([paths.scss.bootstrap, paths.scss.src, paths.scss.comp_src])
+  return gulp.src([paths.scss.bootstrap, paths.scss.src, paths.scss.comp_src, paths.scss.node_src])
     .pipe(sourcemaps.init())
     .pipe(sass({
       includePaths: [
