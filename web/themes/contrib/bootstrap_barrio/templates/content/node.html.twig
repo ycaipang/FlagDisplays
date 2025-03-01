@@ -82,18 +82,42 @@
     {% endif %}
     {{ title_suffix }}
     {% if display_submitted %}
-      <div class="node__meta">
-        {{ author_picture }}
-        {% block submitted %}
-          <em{{ author_attributes }}>
-            {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-          </em>
-        {% endblock %}
-        {{ metadata }}
-      </div>
+      {# Display the submission information here if needed #}
     {% endif %}
   </header>
-  <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
-    {{ content }}
+  <div class="text-center"> {# Center the entire content div #}
+    <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
+      <div class="node__content-left">
+        <img src="{{ file_url(content.field_image['#items'].entity.uri.value) }}" />
+      </div>
+      <div class="node__content-right">
+        <h1>{{ node.label }}</h1>
+        <p>Placeholder for description</p>
+        {# Add more placeholders for content as needed #}
+      </div>
+    </div>
   </div>
 </article>
+<br>
+<br>
+
+<style>
+  .node__content {
+    display: flex;
+  }
+
+  .node__content-left,
+  .node__content-right {
+    flex: 1;
+  }
+
+  .node__content-left img{
+    text-align: center;
+  }
+  .node__content-right h1,
+  .node__content-right p {
+    text-align: left;
+  }
+
+  /* Additional styling can be added as necessary */
+</style>
